@@ -35,7 +35,7 @@ func ParseRequest(data []byte) (request *http.Request, err error) {
 
 	request, err = http.ReadRequest(reader)
 	if request == nil {
-		return nil, errors.New("Could not parse data for http output request\n")
+		return nil, errors.New("Invalid or missing delimiter for TCP input")
 	}
 
 	if request.Method == "POST" {
