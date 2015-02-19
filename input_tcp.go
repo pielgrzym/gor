@@ -72,10 +72,13 @@ func (i *TCPInput) handleConnection(conn net.Conn) {
 				if err != nil {
 					if err != io.EOF {
 						log.Printf("error: %s\n", err)
+					} else {
+						log.Printf("error: input TCP connection closed\n")
+						break
 					}
 				}
 			} else {
-				log.Printf("input TCP connection closed")
+				log.Printf("error: input TCP connection closed\n")
 				break
 			}
 		}
