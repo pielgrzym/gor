@@ -74,6 +74,9 @@ func (i *TCPInput) handleConnection(conn net.Conn) {
 						log.Printf("error: %s\n", err)
 					}
 				}
+			} else {
+				log.Printf("input TCP connection closed")
+				break
 			}
 		}
 	}

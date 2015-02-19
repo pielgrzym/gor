@@ -33,6 +33,9 @@ func ParseRequest(data []byte) (request *http.Request, err error) {
 	reader := bufio.NewReader(buf)
 
 	request, err = http.ReadRequest(reader)
+	if request == nil {
+		return nil, errors.New("Could not parse data for http output request")
+	}
 
 	if request.Method == "POST" {
 		body, _ := ioutil.ReadAll(reader)
