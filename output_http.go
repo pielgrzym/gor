@@ -11,6 +11,7 @@ import (
 	"sync/atomic"
 	"time"
 	"io/ioutil"
+	"errors"
 )
 
 type RedirectNotAllowed struct{}
